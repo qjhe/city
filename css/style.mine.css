@@ -1,0 +1,103 @@
+input,textarea,dd{margin:0;padding:0;border:none; outline:none;}
+textarea{ resize:none; overflow:auto;}
+em{ font-style:normal;}
+ul,dl{margin:0;padding:0; list-style:none;}
+h1,p,h2,h3,h4,h5,h6{margin:0; font-weight:normal;}
+a,input,em,h2,h3,li,label,p,div{-webkit-tap-highlight-color:rgba(255,0,0,0);}
+a{ text-decoration:none;}
+img{ border:none; vertical-align:top;}
+strong,em{ font-weight:normal;}
+body{margin:0; padding:0;font-family:Arial,"微软雅黑";color:#666; font-size:0.2813rem; line-height:0.5625rem;/* 行高36px */}
+table, caption, tbody, tfoot, thead, tr, th, td, menu {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+    font-weight:normal;
+}
+i,em{font-style: normal}
+table {border-collapse: collapse;border-spacing: 0;}
+.wrap{ width:10rem; margin:0px auto;overflow: hidden;}
+
+
+.area-page, .area-page>div{
+    box-sizing: border-box;
+    color: #2d2d2d;
+    font-size: 1pc;
+}
+.search-area{
+    position: fixed;
+    background: #f6f8fc;
+    width: 100%;
+    height: 44px;
+    padding: 5px 10px;
+    z-index: 100;
+}
+.search-area .search_img{
+    display: block;
+    width: 1pc;
+    height: 1pc;
+    background-image: url(../images/search.png);
+    background-size: cover;
+    position: absolute;
+    left: 15px;
+    top: 9pt;
+}
+.search-area input{
+    display: inline-block;
+    width: 100%;
+    height: 30px;
+    border: 1px solid #e5e5e5;
+    outline: 0;
+    border-radius: 5px;
+    text-indent: 20px;
+}
+.search-area .clear_img{
+    display: block;
+    width: 30px;
+    height: 30px;
+    background: url(../images/del.png) no-repeat center;
+    background-size: 1pc 1pc;
+    position: absolute;
+    right: 10px;
+    top: 5px;
+}
+
+.area-list-box{
+    position: absolute;
+    top: 84px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+}
+.area-list{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+.area-list .city {
+    height: 40pt;
+    line-height: 40pt;
+    font-size: 1pc;
+    text-indent: 15px;
+    border-bottom: 1px solid #e5e5e5;
+}
+.area-list .sort{
+    display: block;
+    background: #efeff4;
+    text-indent: 15px;
+    height: 40pt;
+    line-height: 40pt;
+    border-bottom: 1px solid #e5e5e5;
+    color: #2d2d2d;
+    font-size: 1pc;
+}

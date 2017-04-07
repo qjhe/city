@@ -1,0 +1,26 @@
+input,textarea,dd{margin:0;padding:0;border:none; outline:none;}
+textarea{ resize:none; overflow:auto;}
+em{ font-style:normal;}
+ul,dl{margin:0;padding:0; list-style:none;}
+h1,p,h2,h3,h4,h5,h6{margin:0; font-weight:normal;}
+a,input,em,h2,h3,li,label,p,div{-webkit-tap-highlight-color:rgba(255,0,0,0);}
+a{ text-decoration:none;}
+img{ border:none; vertical-align:top;}
+strong,em{ font-weight:normal;}
+body{margin:0; padding:0;font-family:Arial,"微软雅黑";color:#666; font-size:0.2813rem; line-height:0.5625rem;/* 行高36px */}
+table, caption, tbody, tfoot, thead, tr, th, td, menu {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+    font-weight:normal;
+}
+i,em{font-style: normal}
+table {border-collapse: collapse;border-spacing: 0;}
+.wrap{ width:10rem; margin:0px auto;overflow: hidden;}
+.clearFiex{ zoom:1;}
+.clearFiex:after{ content:""; display:block; clear:both;}
+.fl{ float:left;}.fr{ float:right;}

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/style.css"/>
+		<script src="js/index.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			
+		</style>
+	</head>
+	<body>
+		<div id="data-show" class="wrap">
+			<div class="tabWrap">
+				<ul class="clearFiex tabNav">
+					<li class="fl wd100 active"><a href="javascript:;">社保查询</a></li>
+				</ul>
+				<div class="itemBox"></div>
+				<div class="agrBox">
+					<label class="agrIcon active"></label>
+					<a href="javascript:;">同意《用户使用协议》</a>
+				</div>
+				<div class="subBox">
+					<a href="javascript:;" class="subBtn">提交</a>
+				</div>
+				<div class="errBox"></div>
+			</div>
+		</div>
+		<script src="js/jquery-2.1.4.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			var argFlg = true;
+			var inpFlag = true;
+			var areaCode =getURLQueryString("areaCode");
+			dataShow()
+			
+			$(".subBtn").on("click",function(){
+				if(vFun()){
+					subFun()
+				}
+			})
+			function subFun(){
+				$.ajax({
+					type:"get",
+					url:"js/data.json",//"https://grccore.songzidai.com/sdk/m/api/authorize/getSocialLoginElements?areaCode="+areaCode+"&access_token=1122334455"
+					data:{},
+					beforeSend:function(){
+						console.log("loading");
+					},
+					success:function(data){},
+					error:function(XMLHttpRequest, textStatus, errorThrown){}
+				})
+			}
+			function vFun(){
+				var arr=[];
+				$(".inpt").each(function(i,n){
+					if($(this).val()==""){
+						arr.push(i)
+					}
+				});
+				
+				if(arr.length>0){
+					var erMsg=$(".inpt").eq(arr[0]).data("msg")+"不能为空！";
+					errInfo(".errBox",erMsg)
+					inpFlag=false;
+				}
+				
+				if(!$(".agrIcon").hasClass("active")){
+					errInfo(".errBox","请先同意协议");
+					argFlg= false;
+				}
+				return inpFlag&&argFlg;
+			}
+		
+			function dataShow(){
+				$.ajax({
+					type:"get",
+					url:"js/data.json",//"https://grccore.songzidai.com/sdk/m/api/authorize/getSocialLoginElements?areaCode="+areaCode+"&access_token=1122334455"
+					data:{},
+					beforeSend:function(){
+						console.log("loading");
+					},
+					success:function(data){
+						if(data.retcode==200){
+							var arr=data.data;
+							var opBtn="";
+							var _html=$.map(arr,function(item,index){
+								opBtn =	item.type=="password"? '<span class="dIcon pwdIcon"></span>':'<span class="dIcon clearBtn"></span>';
+								return '<div class="inpBox">'+
+											'<label>'+item.label+'</label>'+
+											'<input type="'+item.type+'" name="" id="'+item.name+'" value="" placeholder="请输入'+item.prompt+'" class="inpt" data-msg="'+item.prompt+'"/>'+
+											opBtn+
+										'</div>';
+							}).join("");
+							
+							$(".itemBox").html(_html)
+						}else{
+							
+						}
+					},
+					error:function(XMLHttpRequest, textStatus, errorThrown){}
+				});
+			};
+			$(document).on("click",".pwdIcon",function(){
+				if($(this).hasClass("active")){
+					$(this).removeClass("active");
+					$(this).siblings("input").attr("type","password");
+				}else{
+					$(this).addClass("active");
+					$(this).siblings("input").attr("type","text");
+				}
+			})
+			$(document).on("click",".clearBtn",function(){
+				$("#username").val("");
+			});
+			$(document).on("input","#username",function(){
+			var _this = $(this);
+			var val_ = _this.val();
+			val_!="" ? _this.siblings(".clearBtn").show() : _this.siblings(".clearBtn").hide();
+			});
+			$(".agrIcon").on("click",function(){
+				if($(this).hasClass("active")){
+					$(this).removeClass("active");
+				}else{
+					$(this).addClass("active");
+					
+				}
+			});
+		</script>
+	</body>
+</html>

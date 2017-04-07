@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/style.css"/>
+		<script src="js/index.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div class="area-page">
+			<div class="search-area">
+				<span class="search_img"></span>
+				<input id="val" type="text" placeholder="可输入中文、拼音进行查找">
+				<span style="display:none;" class="clear_img"></span>
+			</div>
+			<div class="fund_mask"><div>A</div></div>
+			<ul id="d_city" class="d_city">
+				<li><span>A</span></li>
+				<li><span>B</span></li>
+				<li><span>C</span></li>
+				<li><span>A</span></li>
+				<li><span>A</span></li>
+				<li><span>A</span></li>
+				<li><span>A</span></li>
+			</ul>
+			<div class="area-list-box">
+				<ul id="area-list" class="area-list">
+					<li>
+						<div class="curr_city" style="display:block;"><span>当前城市：</span><span style="color:#333;">北京(点击进入)</span></div>
+					</li>
+					<div id="city-con" class="city-con">
+						<li class="tit">
+							<span class="sort">A</span>
+							<div class="city">阿拉克</div>
+						</li>
+						<li class="tit">
+							<div class="city">阿拉克</div>
+						</li>
+						<li class="tit">
+							<div class="city">阿拉克</div>
+						</li>
+						<li class="tit">
+							<div class="city">阿拉克</div>
+						</li>
+						<li class="tit">
+							<div class="city">阿拉克</div>
+						</li>
+						<li class="tit">
+							<span class="sort">B</span>
+							<div class="city">阿拉克</div>
+						</li>
+						<li class="tit">
+							<div class="city">阿拉克</div>
+						</li>
+						<li class="tit">
+							<div class="city">阿拉克</div>
+						</li>
+					</div>
+				</ul>
+			</div>
+		</div>
+	</body>
+	<script src="js/jquery-2.1.4.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/city.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		var cityJson = {
+			"retcode": 200,
+			"data": [
+				{
+					"areaCode": "1100",
+					"areaName": "北京市",
+					"sortLetter": "BeiJingShi",
+					"status": "1"
+				},
+				{
+					"areaCode": "3100",
+					"areaName": "上海市",
+					"sortLetter": "ShangHaiShi",
+					"status": "1"
+				},
+				{
+					"areaCode": "4403",
+					"areaName": "深圳市",
+					"sortLetter": "ShenZhenShi",
+					"status": "1"
+				},
+				{
+					"areaCode": "3701",
+					"areaName": "济南市",
+					"sortLetter": "JiNanShi",
+					"status": "1"
+				},
+				{
+					"areaCode": "5000",
+					"areaName": "重庆市",
+					"sortLetter": "ChongQingShi",
+					"status": "1"
+				},
+				{
+					"areaCode": "4201",
+					"areaName": "武汉市",
+					"sortLetter": "WuHanShi",
+					"status": "1"
+				},
+				{
+					"areaCode": "2201",
+					"areaName": "长春市",
+					"sortLetter": "ChangChunShi",
+					"status": "1"
+				},
+				{
+					"areaCode": "3501",
+					"areaName": "福州市",
+					"sortLetter": "FuZhouShi",
+					"status": "1"
+				},
+				{
+					"areaCode": "3205",
+					"areaName": "苏州市",
+					"sortLetter": "SuZhouShi",
+					"status": "1"
+				},
+				{
+					"areaCode": "3401",
+					"areaName": "合肥市",
+					"sortLetter": "HeFeiShi",
+					"status": "1"
+				},
+				{
+					"areaCode": "3302",
+					"areaName": "宁波市",
+					"sortLetter": "NingBoShi",
+					"status": "1"
+				},
+				{
+					"areaCode": "6101",
+					"areaName": "西安市",
+					"sortLetter": "XiAnShi",
+					"status": "1"
+				},
+				{
+					"areaCode": "3201",
+					"areaName": "南京市",
+					"sortLetter": "NanJingShi",
+					"status": "1"
+				},
+				{
+					"areaCode": "3601",
+					"areaName": "南昌市",
+					"sortLetter": "NanChangShi",
+					"status": "1"
+				},
+				{
+					"areaCode": "3502",
+					"areaName": "厦门市",
+					"sortLetter": "XiaMenShi",
+					"status": "1"
+				},
+				{
+					"areaCode": "1200",
+					"areaName": "天津市",
+					"sortLetter": "TianJinShi",
+					"status": "1"
+				},
+				{
+					"areaCode": "5101",
+					"areaName": "成都市",
+					"sortLetter": "ChengDouShi",
+					"status": "1"
+				},
+				{
+					"areaCode": "1303",
+					"areaName": "秦皇岛市",
+					"sortLetter": "QinHuangDaoShi",
+					"status": "1"
+				},
+				{
+					"areaCode": "3702",
+					"areaName": "青岛市",
+					"sortLetter": "QingDaoShi",
+					"status": "1"
+				},
+				{
+					"areaCode": "4406",
+					"areaName": "佛山市",
+					"sortLetter": "FoShanShi",
+					"status": "1"
+				}
+			],
+			"msg": null
+		};
+		var cityData = cityJson.data;
+		initCity(cityData);
+		//cityList();
+		function cityList(){
+			$.ajax({
+				type:"get",
+				url:"https://grccore.songzidai.com/sdk/m/api/authorize/getSociaAreas?access_token=1122334455",
+				data:{},
+				beforeSend:function(){
+					console.log("loading");
+				},
+				success:function(data){
+					initCity(data.data);
+				},
+				error:function(XMLHttpRequest, textStatus, errorThrown){}
+			});
+		};
+
+
+	</script>
+	<script src="https://api.map.baidu.com/location/ip?ak=uZMTxGSHnl4j6Bi1DtY2e4XtBzrSbXyz&callback=locate"></script>
+</html>
